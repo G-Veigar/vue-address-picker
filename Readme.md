@@ -24,6 +24,8 @@
 属性 | 描述 | 类型|默认
 ----|------|----|----
 noDistrict | 不显示区选项（只要省市）  | Boolean|false
+noLabel | 不显示label  | Boolean|false
+label | 自定义label  | object| {province: '省',city:'市',district:'区'}
 
 
 ## License 
