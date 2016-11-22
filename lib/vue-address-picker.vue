@@ -6,19 +6,19 @@ noDistrict  是否显示区选项    Boolean   false
 <template>
   <div class='address-picker'>
     <label class="province">
-      <span class="option_title">所在省</span>
+      <span class="option_title" v-if="!options.noLabel">{{t_province}}</span>
       <select v-model="province" @change="changed">
         <option v-for="item in add">{{item.name}}</option>
       </select>
     </label>
     <label class="city">
-      <span class="option_title">所在市</span>
+      <span class="option_title" v-if="!options.noLabel">{{t_city}}</span>
       <select v-model="city" @change="changed">
         <option v-for="item in thisCitys">{{item.name}}</option>
       </select>
     </label>
     <label class="district" v-show="!options.noDistrict">
-      <span class="option_title">所在区</span>
+      <span class="option_title" v-if="!options.noLabel">{{t_district}}</span>
       <select v-model="district" @change="changed">
         <option v-for="item in thisDistricts">{{item}}</option>
       </select>
@@ -42,6 +42,27 @@ module.exports = {
     computed: {
       options: function(){
         return this.opts?this.opts:{}
+      },
+      t_province: function(){
+      	if((this.opts||{}).label){
+      		return this.opts.label.province?this.opts.label.province:'省'
+      	}else{
+      		return '省'
+      	}
+      },
+      t_city: function(){
+      	if((this.opts||{}).label){
+      		return this.opts.label.city?this.opts.label.city:'市'
+      	}else{
+      		return '市'
+      	}
+      },
+      t_district: function(){
+      	if((this.opts||{}).label){
+      		return this.opts.label.district?this.opts.label.district:'区'
+      	}else{
+      		return '区'
+      	}
       },
       thisCitys: function(){
         var thisProvince = this.province

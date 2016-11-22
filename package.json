@@ -1,6 +1,6 @@
 {
   "name": "vue-address-picker",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "基于vue2的省市区三级联动组件",
   "keywords": [
     "vue",
@@ -22,8 +22,6 @@
     "less-loader": "^2.2.3"
   },
   "devDependencies": {
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
     "mocha": "*",
     "should": "*"
   },
