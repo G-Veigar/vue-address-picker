@@ -1,26 +1,30 @@
-
 # vue-address-picker
 
   基于vue2的省市区三级联动组件
 
 ## 安装
 
-  npm i vue-address-picker --save
+  npm  i  vue-address-picker  --save
 
 ## 使用
 	
-	### 导入
+### 导入
 
-	import Vue from 'Vue' 
+	import Vue from 'Vue'
 	import addressPicker from 'vue-address-picker'
 
 	Vue.use(addressPicker)
 
-	### 在组件中使用
+### 在组件中使用
+
 	<address-picker :opts="obj"></address-picker>
 	
-	### opts参数对象属性表
-	noDistrict  不显示区选项（只要省市） Boolean false
+### opts参数对象属性表
+
+| 属性        | 描述           | 类型  |默认|
+| ------------- |:-------------:| -----:|
+| noDistrict      |不显示区选项（只要省市） | Boolean | false|
+
 
 ## License 
 
