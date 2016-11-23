@@ -17,8 +17,9 @@
 
 ### 在组件中使用
 
-	<address-picker :opts="obj"></address-picker>
+	<address-picker :opts="obj" v-model="address"></address-picker>
 	
+	父组件通过绑定v-model（或者手动监听input事件）获取选值。
 ### opts参数对象属性表
 
 属性 | 描述 | 类型|默认

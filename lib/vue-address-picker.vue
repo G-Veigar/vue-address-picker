@@ -1,8 +1,3 @@
-<!-- 
-组件参数 opts 对象属性表
-属性名       描述            类型        默认
-noDistrict  是否显示区选项    Boolean   false
--->
 <template>
   <div class='address-picker'>
     <label class="province">
