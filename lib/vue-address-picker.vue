@@ -95,7 +95,15 @@ module.exports = {
       }
     },
     mounted: function(){
-      console.log();
+      if(this.opts&&this.opts.default&&this.opts.default.province){
+        this.province =this.opts.default.province;
+        if(this.opts.default.city){
+          this.city =  this.opts.default.city;
+          if(this.opts.default.district){
+            this.district =  this.opts.default.district;
+          }
+        }
+      }
     }
 }
 </script>

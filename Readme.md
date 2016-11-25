@@ -2,11 +2,10 @@
 
   基于vue2的省市区三级联动组件
 
-## 安装
+### 安装
 
-  npm  i  vue-address-picker  --save
+	npm  i  vue-address-picker  --save
 
-## 使用
 	
 ### 导入
 
@@ -27,6 +26,22 @@
 noDistrict | 不显示区选项（只要省市）  | Boolean|false
 noLabel | 不显示label  | Boolean|false
 label | 自定义label  | object| {province: '省',city:'市',district:'区'}
+default | 默认选项  | object| {province: '',city:'',district:''}
+
+例：
+	obj: {
+	    label: {
+	      province: '所在省',
+	      city: '所在市',
+	      district: ''
+	    },
+	    default: {
+	      province: '河南',
+	      city: '平顶山',
+	      district: '湛河区'
+	    },
+	    noLabel: true
+	}
 
 
 ## License 
