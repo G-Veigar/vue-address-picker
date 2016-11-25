@@ -2,19 +2,19 @@
   <div class='address-picker'>
     <label class="province">
       <span class="option_title" v-if="!options.noLabel">{{t_province}}</span>
-      <select v-model="province" @change="changed">
+      <select v-model="province" @change="changed('province')">
         <option v-for="item in add">{{item.name}}</option>
       </select>
     </label>
     <label class="city">
       <span class="option_title" v-if="!options.noLabel">{{t_city}}</span>
-      <select v-model="city" @change="changed">
+      <select v-model="city" @change="changed('city')">
         <option v-for="item in thisCitys">{{item.name}}</option>
       </select>
     </label>
     <label class="district" v-show="!options.noDistrict">
       <span class="option_title" v-if="!options.noLabel">{{t_district}}</span>
-      <select v-model="district" @change="changed">
+      <select v-model="district" @change="changed('district')">
         <option v-for="item in thisDistricts">{{item}}</option>
       </select>
     </label>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-var addressJson = require('./address.js')
+const addressJson = require('./address.js')
 
 module.exports = {
     name: 'addressPicker',
@@ -90,7 +90,13 @@ module.exports = {
     },
     props: ['opts'],
     methods: {
-      changed: function(){
+      changed: function(type){
+        if(type == "province") {
+          this.city = ''
+          this.district = ''
+        }else if(type == "city") {
+          this.district = ''
+        }
         this.$emit('input',this.address);
       }
     },
@@ -103,6 +109,7 @@ module.exports = {
             this.district =  this.opts.default.district;
           }
         }
+        this.$emit('input',this.address);
       }
     }
 }
