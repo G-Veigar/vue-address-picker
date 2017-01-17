@@ -3,18 +3,21 @@
     <label class="province">
       <span class="option_title" v-if="!options.noLabel">{{t_province}}</span>
       <select v-model="province" @change="changed('province')">
+        <option value='请选择' style="display: none">请选择</option>
         <option v-for="item in add">{{item.name}}</option>
       </select>
     </label>
     <label class="city">
       <span class="option_title" v-if="!options.noLabel">{{t_city}}</span>
       <select v-model="city" @change="changed('city')">
+        <option value='请选择' style="display: none">请选择</option>
         <option v-for="item in thisCitys">{{item.name}}</option>
       </select>
     </label>
     <label class="district" v-show="!options.noDistrict">
       <span class="option_title" v-if="!options.noLabel">{{t_district}}</span>
       <select v-model="district" @change="changed('district')">
+        <option value='请选择' style="display: none">请选择</option>
         <option v-for="item in thisDistricts">{{item}}</option>
       </select>
     </label>
@@ -92,10 +95,10 @@ module.exports = {
     methods: {
       changed: function(type){
         if(type == "province") {
-          this.city = ''
-          this.district = ''
+          this.city = '请选择'
+          this.district = '请选择'
         }else if(type == "city") {
-          this.district = ''
+          this.district = '请选择'
         }
         this.$emit('input',this.address);
       }
@@ -107,9 +110,17 @@ module.exports = {
           this.city =  this.opts.default.city;
           if(this.opts.default.district){
             this.district =  this.opts.default.district;
+          }else {
+            this.district =  '请选择'
           }
+        }else {
+          this.city = '请选择';
         }
         this.$emit('input',this.address);
+      }else {
+        this.province = '请选择';
+        this.city = '请选择';
+        this.district = '请选择';
       }
     }
 }
