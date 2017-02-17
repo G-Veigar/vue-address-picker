@@ -101,27 +101,38 @@ module.exports = {
           this.district = '请选择'
         }
         this.$emit('input',this.address);
+      },
+      init: function(){
+        if(this.opts&&this.opts.default&&this.opts.default.province){
+          this.province =this.opts.default.province;
+          if(this.opts.default.city){
+            this.city =  this.opts.default.city;
+            if(this.opts.default.district){
+              this.district =  this.opts.default.district;
+            }else {
+              this.district =  '请选择'
+            }
+          }else {
+            this.city = '请选择';
+          }
+          this.$emit('input',this.address);
+        }else {
+          this.province = '请选择';
+          this.city = '请选择';
+          this.district = '请选择';
+        }
+      }
+    },
+    watch: {
+      opts: {
+        handler: function(){
+          this.init()
+        },
+        deep: true
       }
     },
     mounted: function(){
-      if(this.opts&&this.opts.default&&this.opts.default.province){
-        this.province =this.opts.default.province;
-        if(this.opts.default.city){
-          this.city =  this.opts.default.city;
-          if(this.opts.default.district){
-            this.district =  this.opts.default.district;
-          }else {
-            this.district =  '请选择'
-          }
-        }else {
-          this.city = '请选择';
-        }
-        this.$emit('input',this.address);
-      }else {
-        this.province = '请选择';
-        this.city = '请选择';
-        this.district = '请选择';
-      }
+      this.init()
     }
 }
 </script>
