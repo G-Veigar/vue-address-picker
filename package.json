@@ -1,6 +1,6 @@
 {
   "name": "vue-address-picker",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "基于vue2的省市区三级联动组件",
   "keywords": [
     "vue",
